@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>moros — Start a Conversation</title>
+<meta name="description" content="Tell us about your business and we'll take a look. If we think we can help, we'll give you a call — no obligation, no hard sell." />
+<meta name="robots" content="index, follow" />
+<meta property="og:title" content="moros — Start a Conversation" />
+<meta property="og:description" content="Tell us about your business. We look at every message and call you back if it's a good fit." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://moros.com/contact.html" />
+<meta property="og:image" content="https://moros.com/assets/og-image.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="moros — Start a Conversation" />
+<meta name="twitter:description" content="Tell us about your business and we'll take a look. If we think we can help, we'll give you a call — no obligation, no hard sell." />
+<meta name="twitter:image" content="https://moros.com/assets/og-image.jpg" />
+<link rel="canonical" href="https://moros.com/contact.html" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact moros",
+  "description": "Get in touch with moros. Tell us about your business and we'll call you back if we think we can help.",
+  "url": "https://moros.com/contact.html",
+  "mainEntity": {
+    "@type": "MarketingAgency",
+    "name": "moros",
+    "url": "https://moros.com",
+    "email": "hello@moros.com",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "hello@moros.com"
+    }
+  }
+}
+</script>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0a'/%3E%3Ctext x='50%25' y='56%25' font-family='Georgia,serif' font-size='22' fill='%23c9a55a' text-anchor='middle' dominant-baseline='middle'%3Em%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body id="top">
+
+  <div id="loader" aria-hidden="true">
+    <div class="loader-logo">moros<span>.</span></div>
+    <div class="loader-track"><div class="loader-bar"></div></div>
+  </div>
+
+  <nav id="nav">
+    <a href="index.html" class="wordmark">moros<span>.</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="index.html" class="navlink">Home</a>
+      <a href="services.html" class="navlink">Services</a>
+      <a href="about.html" class="navlink">About</a>
+      <a href="process.html" class="navlink">Process</a>
+      <a href="contact.html" class="btn btn--ghost">Start a Conversation</a>
+    </div>
+  </nav>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="page-hero wrap" style="padding-bottom:clamp(4rem,10vh,7rem)">
+    <div class="contact-grid">
+
+      <!-- Left -->
+      <div class="contact-aside reveal">
+        <p class="eyebrow" style="margin-bottom:1.6rem">Start a conversation</p>
+        <h1>Tell us about<br /><em>your business.</em></h1>
+        <p>We work with a small number of businesses at a time. Fill in your details
+          and we'll take a look — if we think we can help, we'll give you a call.</p>
+        <ul class="contact-points">
+          <li><span class="k">What happens</span><span>We look at every message within one business day.</span></li>
+          <li><span class="k">The call</span><span>A short, honest call. No long presentation, no pressure.</span></li>
+          <li><span class="k">Email</span><span><a href="mailto:hello@moros.com" class="accent">hello@moros.com</a></span></li>
+        </ul>
+      </div>
+
+      <!-- Right: form -->
+      <div class="reveal" style="transition-delay:.1s">
+        <div id="form-view">
+          <form id="apply-form" novalidate>
+            <div class="field-row">
+              <div class="field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required />
+              </div>
+              <div class="field">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="So we can call you" required />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@business.com" required />
+            </div>
+
+            <div class="field">
+              <label for="businessType">Type of business <span class="opt">(optional)</span></label>
+              <input type="text" id="businessType" name="businessType" placeholder="e.g. dental clinic, law firm, gym" />
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="revenue">Monthly income <span class="opt">(optional)</span></label>
+                <select id="revenue" name="revenue">
+                  <option value="" disabled selected>Select a range</option>
+                  <option value="<5k">Under €5,000</option>
+                  <option value="5-20k">€5,000 – €20,000</option>
+                  <option value="20-50k">€20,000 – €50,000</option>
+                  <option value="50k+">€50,000+</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="budget">Monthly ad budget</label>
+                <select id="budget" name="budget" required>
+                  <option value="" disabled selected>Select a range</option>
+                  <option value="<1k">Under €1,000</option>
+                  <option value="1-3k">€1,000 – €3,000</option>
+                  <option value="3-7k">€3,000 – €7,000</option>
+                  <option value="7k+">€7,000+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-foot">
+              <button type="submit" class="btn">Send my details</button>
+              <p class="magnet">No spam, no pushy emails. We look at your details and only call if we think we can help.</p>
+            </div>
+          </form>
+        </div>
+
+        <div id="success-view" class="form-success" style="display:none">
+          <span class="mark">—</span>
+          <h3>Details received.</h3>
+          <p>Thank you. We'll look at your details and, if it's a good match, call you within one business day.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>
+        <a href="index.html" class="wordmark">moros<span>.</span></a>
+        <p class="footer-desc">A website, ads, and a system that brings in customers.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Pages</h5>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="process.html">Process</a>
+      </div>
+      <div class="footer-col">
+        <h5>Get in touch</h5>
+        <a href="contact.html">Start a Conversation</a>
+        <a href="mailto:hello@moros.com">hello@moros.com</a>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© 2026 moros. All rights reserved.</span>
+      <div style="display:flex;gap:1.5rem">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
