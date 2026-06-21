@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ironclad Build Co. — Built to Last. Built Right.</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:"Helvetica Neue",Arial,system-ui,sans-serif;background:#111418;color:#f2ede6;line-height:1.6;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.3rem 3rem;background:rgba(17,20,24,0.93);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none}
+.logo-icon{width:32px;height:32px;background:#f5a623;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)}
+.logo-text{font-size:0.95rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#f2ede6}
+.logo-text span{color:#f5a623}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(242,237,230,0.5);text-decoration:none;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600}
+.nav-quote{background:#f5a623;color:#111418 !important;padding:0.6rem 1.4rem;border-radius:2px;font-weight:800 !important}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding:0 3rem;background:#111418;position:relative;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:60px 60px}
+.hero-accent-bar{position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#f5a623 0%,#e8940f 100%)}
+.hero-inner{position:relative;z-index:2;max-width:800px}
+.hero-eyebrow{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.eyebrow-line{width:40px;height:3px;background:#f5a623}
+.eyebrow-text{font-size:0.65rem;font-weight:800;letter-spacing:0.35em;text-transform:uppercase;color:#f5a623}
+.hero h1{font-size:5.5rem;font-weight:900;text-transform:uppercase;letter-spacing:-0.03em;line-height:0.9;margin-bottom:2rem}
+.hero h1 span{color:#f5a623;display:block}
+.hero-sub{font-size:1.05rem;color:rgba(242,237,230,0.5);max-width:480px;margin-bottom:3rem;line-height:1.7;font-weight:300}
+.btn-row{display:flex;gap:1rem;align-items:center}
+.btn{display:inline-block;padding:1rem 2.2rem;font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;font-weight:800;transition:all 0.22s}
+.btn-yellow{background:#f5a623;color:#111418;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px))}
+.btn-outline{border:2px solid rgba(242,237,230,0.2);color:#f2ede6}
+.hero-badges{display:flex;gap:2rem;margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,0.07)}
+.badge{display:flex;align-items:center;gap:0.75rem;font-size:0.78rem;color:rgba(242,237,230,0.4);font-weight:500;letter-spacing:0.06em}
+.badge-icon{width:28px;height:28px;border:2px solid #f5a623;display:flex;align-items:center;justify-content:center;font-size:0.8rem;flex-shrink:0}
+
+.sp{padding:6rem 3rem}
+.section-eyebrow{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+.section-h{font-size:3rem;font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;line-height:1.05;margin-bottom:3rem}
+.section-h span{color:#f5a623}
+
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.06)}
+.svc-item{background:#111418;padding:2.8rem 2.2rem;position:relative;overflow:hidden}
+.svc-item::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:#f5a623;transition:height 0.4s ease}
+.svc-item:hover::before{height:100%}
+.svc-icon{width:48px;height:48px;background:rgba(245,166,35,0.12);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.5rem;border:1px solid rgba(245,166,35,0.2)}
+.svc-name{font-size:1.1rem;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.6rem}
+.svc-desc{font-size:0.83rem;color:rgba(242,237,230,0.45);line-height:1.75}
+
+.numbers-strip{background:#f5a623;padding:3rem;display:grid;grid-template-columns:repeat(4,1fr)}
+.num-item{text-align:center;color:#111418;border-right:1px solid rgba(17,20,24,0.15)}
+.num-item:last-child{border-right:none}
+.num-val{font-size:3.5rem;font-weight:900;letter-spacing:-0.03em;line-height:1}
+.num-lbl{font-size:0.65rem;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;opacity:0.65;margin-top:0.4rem}
+
+.bg-off{background:#0e1115}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.project-card{position:relative;overflow:hidden;aspect-ratio:4/3}
+.pc-img{width:100%;height:100%;object-fit:cover}
+.pc-1{background:linear-gradient(145deg,#2a3040 0%,#161c24 100%)}
+.pc-2{background:linear-gradient(145deg,#1e2830 0%,#0e161e 100%)}
+.pc-3{background:linear-gradient(145deg,#25301e 0%,#131a10 100%)}
+.project-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(17,20,24,0.9) 0%,transparent 60%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.8rem}
+.project-type{font-size:0.62rem;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;color:#f5a623;margin-bottom:0.4rem}
+.project-name{font-size:1.2rem;font-weight:800;text-transform:uppercase;letter-spacing:0.04em}
+
+.cta-s{background:linear-gradient(145deg,#1a1f28 0%,#111418 100%);padding:7rem 3rem;text-align:center;position:relative;overflow:hidden}
+.cta-s::before{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:#f5a623}
+.cta-s h2{font-size:3.2rem;font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;margin-bottom:1rem;line-height:0.95}
+.cta-s h2 span{color:#f5a623}
+.cta-s p{color:rgba(242,237,230,0.45);margin-bottom:2.5rem;font-size:1rem}
+
+footer{background:#0a0c0f;padding:3rem;text-align:center;color:rgba(242,237,230,0.2);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="logo-icon"></div>
+    <span class="logo-text">Ironclad<span>.</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Projects</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+    <li><a href="#" class="nav-quote">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-accent-bar"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Trusted since 2008 · Licensed & Insured</span>
+    </div>
+    <h1>Built to<br/>Last.<br/><span>Built Right.</span></h1>
+    <p class="hero-sub">Residential, commercial, and industrial construction. From foundations to finishing — we deliver on time, on budget, and on point.</p>
+    <div class="btn-row">
+      <a href="#" class="btn btn-yellow">Get a Free Quote</a>
+      <a href="#" class="btn btn-outline">Our Projects</a>
+    </div>
+    <div class="hero-badges">
+      <div class="badge"><div class="badge-icon">✓</div><span>Licensed & Certified</span></div>
+      <div class="badge"><div class="badge-icon">⏱</div><span>On-Time Guarantee</span></div>
+      <div class="badge"><div class="badge-icon">★</div><span>15+ Years Experience</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="sp">
+  <div class="section-eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">What we build</span></div>
+  <h2 class="section-h">Our<br/><span>Services.</span></h2>
+  <div class="services-grid">
+    <div class="svc-item">
+      <div class="svc-icon">🏗</div>
+      <h3 class="svc-name">New Construction</h3>
+      <p class="svc-desc">Ground-up builds for residential homes, commercial units, and light industrial. Full project management included.</p>
+    </div>
+    <div class="svc-item">
+      <div class="svc-icon">🔨</div>
+      <h3 class="svc-name">Renovation</h3>
+      <p class="svc-desc">Kitchens, bathrooms, full interior fit-outs. We modernise existing spaces without disrupting your life.</p>
+    </div>
+    <div class="svc-item">
+      <div class="svc-icon">🏢</div>
+      <h3 class="svc-name">Commercial</h3>
+      <p class="svc-desc">Office fit-outs, retail spaces, warehouses. Built for function, compliance, and lasting first impressions.</p>
+    </div>
+  </div>
+</section>
+
+<div class="numbers-strip">
+  <div class="num-item"><div class="num-val">450+</div><div class="num-lbl">Projects Completed</div></div>
+  <div class="num-item"><div class="num-val">15</div><div class="num-lbl">Years in Business</div></div>
+  <div class="num-item"><div class="num-val">98%</div><div class="num-lbl">On-Time Delivery</div></div>
+  <div class="num-item"><div class="num-val">€80M+</div><div class="num-lbl">Value Delivered</div></div>
+</div>
+
+<section class="sp bg-off">
+  <div class="section-eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Recent work</span></div>
+  <h2 class="section-h">Featured<br/><span>Projects.</span></h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="pc-1" style="width:100%;height:100%;position:absolute;inset:0"></div>
+      <div class="project-overlay">
+        <p class="project-type">Commercial</p>
+        <h3 class="project-name">Lakeside Office Complex</h3>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="pc-2" style="width:100%;height:100%;position:absolute;inset:0"></div>
+      <div class="project-overlay">
+        <p class="project-type">Residential</p>
+        <h3 class="project-name">Hillcrest Luxury Villas</h3>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="pc-3" style="width:100%;height:100%;position:absolute;inset:0"></div>
+      <div class="project-overlay">
+        <p class="project-type">Industrial</p>
+        <h3 class="project-name">Portside Warehouse A</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-s">
+  <h2>Your project<br/>starts <span>here.</span></h2>
+  <p>Tell us what you're building. We'll give you a free, no-obligation quote within 48 hours.</p>
+  <a href="#" class="btn btn-yellow">Get a Free Quote</a>
+</section>
+
+<footer>
+  <p>© 2026 Ironclad Build Co. · All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

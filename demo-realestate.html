@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crestview Realty — Find Your Dream Home</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:Georgia,"Times New Roman",serif;background:#0d1b2a;color:#f0ece2;line-height:1.6;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;background:rgba(13,27,42,0.88);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,165,90,0.15)}
+.nav-logo{font-size:1.5rem;color:#c9a55a;text-decoration:none;letter-spacing:0.04em;font-style:italic}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:rgba(240,236,226,0.65);text-decoration:none;font-family:"Helvetica Neue",system-ui,sans-serif;font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase}
+.nav-cta{background:#c9a55a !important;color:#0d1b2a !important;padding:0.55rem 1.3rem;border-radius:2px;font-weight:600 !important}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 3rem 5rem;background:linear-gradient(165deg,#1b3f6a 0%,#0d1b2a 55%,#08111c 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 65% 25%,rgba(201,165,90,0.10) 0%,transparent 55%)}
+.hero-tag{font-family:"Helvetica Neue",system-ui,sans-serif;font-size:0.7rem;letter-spacing:0.3em;text-transform:uppercase;color:#c9a55a;margin-bottom:1.4rem}
+.hero h1{font-size:5rem;font-weight:400;line-height:1.05;max-width:680px;margin-bottom:1.6rem}
+.hero h1 em{color:#c9a55a;font-style:italic}
+.hero-sub{font-family:"Helvetica Neue",system-ui,sans-serif;font-size:1.05rem;color:rgba(240,236,226,0.6);max-width:440px;margin-bottom:2.8rem;line-height:1.7}
+.btn-row{display:flex;gap:1.2rem;align-items:center}
+.btn{display:inline-block;padding:0.9rem 2.2rem;font-family:"Helvetica Neue",system-ui,sans-serif;font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;font-weight:500;border-radius:2px;transition:all 0.25s}
+.btn-primary{background:#c9a55a;color:#0d1b2a}
+.btn-ghost{border:1px solid rgba(240,236,226,0.3);color:#f0ece2}
+.hero-rule{width:80px;height:1px;background:#c9a55a;margin-top:3.5rem;opacity:0.5}
+
+.search-strip{background:rgba(255,255,255,0.04);backdrop-filter:blur(12px);border-top:1px solid rgba(201,165,90,0.2);border-bottom:1px solid rgba(201,165,90,0.2);padding:1.8rem 3rem;display:flex;gap:0;align-items:flex-end}
+.sf{flex:1;padding-right:2rem;border-right:1px solid rgba(255,255,255,0.1)}
+.sf:first-child{padding-left:0}
+.sf:last-child{border-right:none;padding-right:0}
+.sf label{display:block;font-family:"Helvetica Neue",system-ui,sans-serif;font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:#c9a55a;margin-bottom:0.5rem}
+.sf input,.sf select{background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,0.15);width:100%;padding:0.45rem 0;color:#f0ece2;font-size:0.95rem;font-family:Georgia,serif;outline:none}
+.sf select option{background:#0d1b2a}
+.search-go{background:#c9a55a;color:#0d1b2a;border:none;padding:1rem 2.5rem;font-family:"Helvetica Neue",system-ui,sans-serif;font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;cursor:pointer;border-radius:2px;margin-left:2rem;white-space:nowrap}
+
+.sp{padding:6rem 3rem}
+.section-eyebrow{font-family:"Helvetica Neue",system-ui,sans-serif;font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:#c9a55a;margin-bottom:1rem}
+.section-h{font-size:3rem;font-weight:400;line-height:1.15;margin-bottom:3rem}
+.section-h em{color:#c9a55a;font-style:italic}
+
+.listings-bg{background:#08111c}
+.prop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.prop-card{background:#0d1b2a;border-radius:3px;overflow:hidden;border:1px solid rgba(201,165,90,0.12)}
+.prop-img{height:230px;position:relative}
+.pi-1{background:linear-gradient(145deg,#1a4a78 0%,#0d2d4a 100%)}
+.pi-2{background:linear-gradient(145deg,#1a3550 0%,#0b2035 100%)}
+.pi-3{background:linear-gradient(145deg,#243a52 0%,#142230 100%)}
+.prop-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,17,28,0.85) 0%,transparent 55%)}
+.prop-price{position:absolute;bottom:1.1rem;left:1.3rem;z-index:1;font-size:1.45rem;font-weight:400}
+.prop-badge{position:absolute;top:1rem;right:1rem;z-index:1;background:#c9a55a;color:#0d1b2a;font-family:"Helvetica Neue",system-ui,sans-serif;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;padding:0.28rem 0.7rem;font-weight:700;border-radius:2px}
+.prop-info{padding:1.5rem 1.3rem}
+.prop-name{font-size:1.15rem;font-weight:400;margin-bottom:0.4rem}
+.prop-addr{font-family:"Helvetica Neue",system-ui,sans-serif;font-size:0.78rem;color:rgba(240,236,226,0.45);margin-bottom:1rem}
+.prop-meta{font-family:"Helvetica Neue",system-ui,sans-serif;display:flex;gap:1.5rem;font-size:0.78rem;color:rgba(240,236,226,0.55)}
+.prop-meta span::before{content:'·';margin-right:0.4rem;color:#c9a55a}
+.prop-meta span:first-child::before{display:none}
+
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4rem}
+.why-num{font-size:4rem;color:rgba(201,165,90,0.2);font-weight:400;line-height:1;margin-bottom:0.8rem}
+.why-item h3{font-size:1.05rem;font-weight:400;letter-spacing:0.04em;margin-bottom:0.6rem;font-family:"Helvetica Neue",system-ui,sans-serif}
+.why-item p{font-family:"Helvetica Neue",system-ui,sans-serif;font-size:0.85rem;color:rgba(240,236,226,0.5);line-height:1.75}
+
+.agents-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
+.agent-card{text-align:center}
+.agent-avatar{width:90px;height:90px;border-radius:50%;margin:0 auto 1rem;border:2px solid rgba(201,165,90,0.3)}
+.av-1{background:linear-gradient(135deg,#3a5a80 0%,#1a3552 100%)}
+.av-2{background:linear-gradient(135deg,#2a4060 0%,#162535 100%)}
+.av-3{background:linear-gradient(135deg,#4a3060 0%,#251535 100%)}
+.av-4{background:linear-gradient(135deg,#3a5050 0%,#1a2a2a 100%)}
+.agent-name{font-size:0.95rem;margin-bottom:0.25rem}
+.agent-role{font-family:"Helvetica Neue",system-ui,sans-serif;font-size:0.72rem;color:rgba(240,236,226,0.45);letter-spacing:0.1em;text-transform:uppercase}
+
+.cta-s{background:linear-gradient(160deg,#1b3f6a 0%,#0d1b2a 100%);text-align:center;padding:7rem 3rem}
+.cta-s h2{font-size:3.2rem;font-weight:400;margin-bottom:1.2rem}
+.cta-s h2 em{color:#c9a55a;font-style:italic}
+.cta-s p{font-family:"Helvetica Neue",system-ui,sans-serif;color:rgba(240,236,226,0.55);margin-bottom:2.5rem;font-size:1.05rem}
+
+footer{background:#060e16;padding:3rem;text-align:center;font-family:"Helvetica Neue",system-ui,sans-serif;color:rgba(240,236,226,0.25);font-size:0.78rem;letter-spacing:0.06em}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Crestview.</a>
+  <ul class="nav-links">
+    <li><a href="#">Buy</a></li>
+    <li><a href="#">Rent</a></li>
+    <li><a href="#">Sell</a></li>
+    <li><a href="#">Agents</a></li>
+    <li><a href="#" class="nav-cta">Book a Viewing</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <p class="hero-tag">Premium Properties · Est. 2018</p>
+  <h1>Find your<br/>place in<br/>the <em>world.</em></h1>
+  <p class="hero-sub">Premium properties across the city's most sought-after neighbourhoods. We find homes people don't forget.</p>
+  <div class="btn-row">
+    <a href="#" class="btn btn-primary">Browse Listings</a>
+    <a href="#" class="btn btn-ghost">Meet Our Agents</a>
+  </div>
+  <div class="hero-rule"></div>
+</header>
+
+<div class="search-strip">
+  <div class="sf">
+    <label>Location</label>
+    <input type="text" placeholder="City, neighbourhood, postcode" />
+  </div>
+  <div class="sf">
+    <label>Property Type</label>
+    <select><option>Any Type</option><option>Apartment</option><option>Villa</option><option>House</option></select>
+  </div>
+  <div class="sf">
+    <label>Budget</label>
+    <select><option>Any Price</option><option>Up to €300k</option><option>€300k – €600k</option><option>€600k+</option></select>
+  </div>
+  <div class="sf">
+    <label>Bedrooms</label>
+    <select><option>Any</option><option>1+</option><option>2+</option><option>3+</option></select>
+  </div>
+  <button class="search-go">Search</button>
+</div>
+
+<section class="sp listings-bg">
+  <p class="section-eyebrow">Featured listings</p>
+  <h2 class="section-h">Handpicked<br/><em>for you.</em></h2>
+  <div class="prop-grid">
+    <div class="prop-card">
+      <div class="prop-img pi-1">
+        <span class="prop-badge">New</span>
+        <span class="prop-price">€680,000</span>
+      </div>
+      <div class="prop-info">
+        <h3 class="prop-name">The Harbourside Penthouse</h3>
+        <p class="prop-addr">12 Marina Drive, Waterfront District</p>
+        <div class="prop-meta"><span>3 Beds</span><span>2 Baths</span><span>142 m²</span></div>
+      </div>
+    </div>
+    <div class="prop-card">
+      <div class="prop-img pi-2">
+        <span class="prop-badge">Exclusive</span>
+        <span class="prop-price">€1,200,000</span>
+      </div>
+      <div class="prop-info">
+        <h3 class="prop-name">Villa Elara</h3>
+        <p class="prop-addr">7 Ridgecrest Lane, Hillside Estate</p>
+        <div class="prop-meta"><span>5 Beds</span><span>4 Baths</span><span>310 m²</span></div>
+      </div>
+    </div>
+    <div class="prop-card">
+      <div class="prop-img pi-3">
+        <span class="prop-badge">Last Unit</span>
+        <span class="prop-price">€395,000</span>
+      </div>
+      <div class="prop-info">
+        <h3 class="prop-name">The Meridian 4B</h3>
+        <p class="prop-addr">Meridian Tower, Central Quarter</p>
+        <div class="prop-meta"><span>2 Beds</span><span>2 Baths</span><span>89 m²</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sp">
+  <p class="section-eyebrow">Why Crestview</p>
+  <h2 class="section-h">We work<br/><em>differently.</em></h2>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-num">01</div>
+      <h3>Exclusive Access</h3>
+      <p>Off-market properties and private sales not available anywhere else.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">02</div>
+      <h3>Dedicated Agent</h3>
+      <p>One experienced agent who knows your preferences and works only for you.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">03</div>
+      <h3>Full Transparency</h3>
+      <p>No pressure, no hidden fees. Clear guidance from search to signature.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sp listings-bg">
+  <p class="section-eyebrow">Our team</p>
+  <h2 class="section-h">Meet the<br/><em>agents.</em></h2>
+  <div class="agents-row">
+    <div class="agent-card">
+      <div class="agent-avatar av-1"></div>
+      <p class="agent-name">Elena Vasquez</p>
+      <p class="agent-role">Senior Agent</p>
+    </div>
+    <div class="agent-card">
+      <div class="agent-avatar av-2"></div>
+      <p class="agent-name">Marcus Webb</p>
+      <p class="agent-role">Luxury Properties</p>
+    </div>
+    <div class="agent-card">
+      <div class="agent-avatar av-3"></div>
+      <p class="agent-name">Anika Patel</p>
+      <p class="agent-role">Investment Advisor</p>
+    </div>
+    <div class="agent-card">
+      <div class="agent-avatar av-4"></div>
+      <p class="agent-name">James Thornton</p>
+      <p class="agent-role">Commercial</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-s">
+  <h2>Ready to find<br/><em>your home?</em></h2>
+  <p>Tell us what you're looking for. We'll handle the rest.</p>
+  <a href="#" class="btn btn-primary">Start the Search</a>
+</section>
+
+<footer>
+  <p>© 2026 Crestview Realty. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

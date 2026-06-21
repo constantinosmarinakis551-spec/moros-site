@@ -52,6 +52,22 @@
     }, 1350);
   }
 
+  /* ---- Demo showcase: dynamic iframe scale ---- */
+  function initDemoScale() {
+    var frames = document.querySelectorAll(".demo-frame");
+    if (!frames.length) return;
+    function update() {
+      frames.forEach(function (frame) {
+        var wrap = frame.parentElement;
+        if (!wrap) return;
+        var scale = wrap.offsetWidth / 1440;
+        frame.style.setProperty("--s", scale);
+      });
+    }
+    update();
+    window.addEventListener("resize", update, { passive: true });
+  }
+
   /* ---- Page transitions ---- */
   function initPageTransitions() {
     document.addEventListener("click", function (e) {
@@ -168,6 +184,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     initBackground();
     initLoader();
+    initDemoScale();
     initPageTransitions();
     initReveal();
     initNav();

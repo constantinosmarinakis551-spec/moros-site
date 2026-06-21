@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlowRight Plumbing — 24/7 Emergency Plumbers</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:"Helvetica Neue",Arial,system-ui,sans-serif;background:#fff;color:#0f1923;line-height:1.6;overflow-x:hidden}
+
+.emergency-bar{background:#1e3a5c;color:#fff;padding:0.55rem 2rem;text-align:center;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;display:flex;justify-content:center;align-items:center;gap:0.8rem}
+.emergency-bar .pulse{width:8px;height:8px;border-radius:50%;background:#4bc27d;flex-shrink:0;box-shadow:0 0 0 2px rgba(75,194,125,0.3)}
+
+nav{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 3rem;background:#fff;border-bottom:2px solid #1e3a5c;box-shadow:0 2px 20px rgba(0,0,0,0.08)}
+.nav-logo{text-decoration:none}
+.logo-main{font-size:1.4rem;font-weight:900;color:#1e3a5c;letter-spacing:-0.02em}
+.logo-main span{color:#3b82f6}
+.logo-sub{font-size:0.6rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#5a7a9a;margin-top:-2px}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-links a{color:#4a6a8a;text-decoration:none;font-size:0.82rem;letter-spacing:0.08em;font-weight:600}
+.nav-call{background:#3b82f6;color:#fff !important;padding:0.65rem 1.5rem;border-radius:4px;font-weight:800 !important}
+
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;background:#fff}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:6rem 3rem 6rem 3rem}
+.trust-badges{display:flex;gap:1rem;margin-bottom:2rem;flex-wrap:wrap}
+.trust-badge{background:#e8f4fd;color:#1e3a5c;font-size:0.62rem;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;padding:0.4rem 0.8rem;border-radius:3px;border:1px solid #c5dff7}
+.hero h1{font-size:3.8rem;font-weight:900;line-height:1;letter-spacing:-0.03em;color:#0f1923;margin-bottom:1.2rem}
+.hero h1 span{color:#3b82f6}
+.hero-sub{font-size:1rem;color:#5a7a9a;max-width:420px;margin-bottom:2.5rem;line-height:1.7}
+.btn-row{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:1rem 2rem;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;font-weight:800;border-radius:4px;transition:all 0.22s}
+.btn-blue{background:#3b82f6;color:#fff}
+.btn-dark{background:#1e3a5c;color:#fff}
+.hero-phone{margin-top:2rem;display:flex;align-items:center;gap:0.75rem}
+.phone-icon{width:40px;height:40px;border-radius:50%;background:#1e3a5c;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.phone-label{font-size:0.62rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#5a7a9a;margin-bottom:0.15rem}
+.phone-num{font-size:1.3rem;font-weight:900;color:#1e3a5c;letter-spacing:-0.02em}
+.hero-right{background:linear-gradient(160deg,#1e3a5c 0%,#0f2035 100%);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:3rem;position:relative;overflow:hidden}
+.hero-right::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 70%,rgba(59,130,246,0.2) 0%,transparent 60%)}
+.card-form{background:rgba(255,255,255,0.06);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:2.5rem;width:100%;max-width:380px;position:relative;z-index:1}
+.card-form h3{color:#fff;font-size:1.3rem;font-weight:800;margin-bottom:0.4rem}
+.card-form p{color:rgba(255,255,255,0.55);font-size:0.82rem;margin-bottom:1.8rem}
+.form-field{margin-bottom:1rem}
+.form-field label{display:block;font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:0.4rem}
+.form-field input,.form-field select{width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:4px;padding:0.7rem 0.9rem;color:#fff;font-family:inherit;font-size:0.9rem;outline:none}
+.form-field select option{background:#1e3a5c}
+.form-submit{width:100%;background:#3b82f6;color:#fff;border:none;padding:1rem;border-radius:4px;font-family:inherit;font-size:0.82rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;margin-top:0.5rem}
+.form-note{font-size:0.68rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:0.75rem}
+
+.sp{padding:5.5rem 3rem}
+.section-label{font-size:0.65rem;font-weight:800;letter-spacing:0.3em;text-transform:uppercase;color:#3b82f6;margin-bottom:0.75rem}
+.section-h{font-size:2.8rem;font-weight:900;letter-spacing:-0.02em;line-height:1.05;margin-bottom:2.5rem;color:#0f1923}
+.section-h span{color:#3b82f6}
+
+.bg-light{background:#f7fafd}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.svc-card{background:#fff;border:1px solid #e2ecf8;border-radius:6px;padding:2.2rem;border-top:3px solid #3b82f6}
+.svc-icon{font-size:2rem;margin-bottom:1.2rem}
+.svc-name{font-size:1rem;font-weight:800;color:#0f1923;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.04em}
+.svc-desc{font-size:0.83rem;color:#5a7a9a;line-height:1.7}
+.svc-tag{display:inline-block;margin-top:1rem;font-size:0.62rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:#3b82f6}
+
+.trust-strip{background:#1e3a5c;padding:3.5rem 3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.trust-item{text-align:center;color:#fff}
+.trust-val{font-size:2.8rem;font-weight:900;color:#3b82f6;line-height:1;margin-bottom:0.3rem}
+.trust-lbl{font-size:0.68rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;opacity:0.55}
+
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.review-card{background:#fff;border:1px solid #e2ecf8;border-radius:6px;padding:2rem}
+.stars{color:#f5a623;font-size:0.9rem;letter-spacing:0.05em;margin-bottom:0.8rem}
+.review-text{font-size:0.85rem;color:#3a5a7a;line-height:1.7;margin-bottom:1.2rem;font-style:italic}
+.reviewer-name{font-size:0.8rem;font-weight:800;color:#0f1923}
+.reviewer-detail{font-size:0.72rem;color:#8aaac8;margin-top:0.1rem}
+
+.cta-s{background:linear-gradient(135deg,#1e3a5c 0%,#0f2035 100%);padding:6rem 3rem;text-align:center}
+.cta-s h2{font-size:3rem;font-weight:900;letter-spacing:-0.02em;color:#fff;margin-bottom:1rem;line-height:1}
+.cta-s h2 span{color:#3b82f6}
+.cta-s p{color:rgba(255,255,255,0.55);margin-bottom:2.5rem;font-size:1rem}
+.cta-emergency{display:inline-flex;align-items:center;gap:0.75rem;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:4px;padding:0.75rem 1.5rem;color:rgba(255,255,255,0.65);font-size:0.78rem;margin-top:1.2rem;text-decoration:none}
+.cta-emergency strong{color:#4bc27d}
+
+footer{background:#0a1520;padding:3rem;display:flex;justify-content:space-between;align-items:center}
+.footer-logo .logo-main{color:#fff}
+.footer-links{display:flex;gap:2rem}
+.footer-links a{color:rgba(255,255,255,0.3);text-decoration:none;font-size:0.75rem;letter-spacing:0.08em}
+.footer-copy{color:rgba(255,255,255,0.2);font-size:0.72rem}
+</style>
+</head>
+<body>
+
+<div class="emergency-bar">
+  <div class="pulse"></div>
+  <span>Emergency Plumbers Available 24/7 — Call Now: +30 210 555 0100</span>
+  <div class="pulse"></div>
+</div>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="logo-main">Flow<span>Right.</span></div>
+    <div class="logo-sub">Professional Plumbing Services</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Emergency</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Reviews</a></li>
+    <li><a href="#" class="nav-call">📞 Call Now</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-left">
+    <div class="trust-badges">
+      <span class="trust-badge">✓ Licensed & Insured</span>
+      <span class="trust-badge">24/7 Emergency</span>
+      <span class="trust-badge">★ 4.9 / 5 Stars</span>
+    </div>
+    <h1>Your local<br/>plumber.<br/><span>On call 24/7.</span></h1>
+    <p class="hero-sub">Fast, honest, and reliable plumbing. Whether it's a burst pipe at 2am or a full bathroom renovation — we show up and we fix it.</p>
+    <div class="btn-row">
+      <a href="#" class="btn btn-blue">Book Online</a>
+      <a href="#" class="btn btn-dark">Emergency Call</a>
+    </div>
+    <div class="hero-phone">
+      <div class="phone-icon">📞</div>
+      <div>
+        <p class="phone-label">Emergency Hotline</p>
+        <p class="phone-num">+30 210 555 0100</p>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="card-form">
+      <h3>Book a Plumber</h3>
+      <p>Get a callback within 30 minutes.</p>
+      <div class="form-field">
+        <label>Your Name</label>
+        <input type="text" placeholder="John Smith" />
+      </div>
+      <div class="form-field">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="+30 69X XXX XXXX" />
+      </div>
+      <div class="form-field">
+        <label>Issue Type</label>
+        <select>
+          <option>Select Issue</option>
+          <option>Burst Pipe</option>
+          <option>Blocked Drain</option>
+          <option>No Hot Water</option>
+          <option>Leak / Drip</option>
+          <option>New Installation</option>
+        </select>
+      </div>
+      <button class="form-submit">Request Callback</button>
+      <p class="form-note">We respond within 30 minutes — day or night.</p>
+    </div>
+  </div>
+</header>
+
+<section class="sp bg-light">
+  <p class="section-label">What we fix</p>
+  <h2 class="section-h">Every job,<br/><span>done right.</span></h2>
+  <div class="services-grid">
+    <div class="svc-card">
+      <div class="svc-icon">🚰</div>
+      <h3 class="svc-name">Emergency Repairs</h3>
+      <p class="svc-desc">Burst pipes, leaks, flooding — we're on site within 60 minutes, any time of day or night.</p>
+      <span class="svc-tag">Available 24/7</span>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">🚿</div>
+      <h3 class="svc-name">Bathroom Fitting</h3>
+      <p class="svc-desc">Full bathroom installation and renovation. We handle supply, fit, and finish — start to end.</p>
+      <span class="svc-tag">Free Quote</span>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">🔧</div>
+      <h3 class="svc-name">Boiler & Heating</h3>
+      <p class="svc-desc">Boiler installations, servicing, and repairs. Gas Safe registered engineers on every job.</p>
+      <span class="svc-tag">Certified Engineers</span>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">🏠</div>
+      <h3 class="svc-name">Drain Clearance</h3>
+      <p class="svc-desc">Blocked drains cleared fast. CCTV drain surveys available. No call-out charge.</p>
+      <span class="svc-tag">No Call-Out Fee</span>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">💧</div>
+      <h3 class="svc-name">Water Pressure</h3>
+      <p class="svc-desc">Low water pressure diagnosis and fix. Pump installation and pressure system upgrade.</p>
+      <span class="svc-tag">Same Day</span>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">🏗</div>
+      <h3 class="svc-name">New Installations</h3>
+      <p class="svc-desc">Full plumbing fit-out for new builds and extensions. We work with your builder and timeline.</p>
+      <span class="svc-tag">All Phases</span>
+    </div>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <div class="trust-item"><div class="trust-val">3,200+</div><div class="trust-lbl">Jobs Completed</div></div>
+  <div class="trust-item"><div class="trust-val">60min</div><div class="trust-lbl">Response Time</div></div>
+  <div class="trust-item"><div class="trust-val">4.9★</div><div class="trust-lbl">Average Rating</div></div>
+  <div class="trust-item"><div class="trust-val">12yrs</div><div class="trust-lbl">In Business</div></div>
+</div>
+
+<section class="sp">
+  <p class="section-label">What customers say</p>
+  <h2 class="section-h">Don't take<br/><span>our word for it.</span></h2>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Burst pipe at midnight, they were here in 45 minutes. Sorted in an hour. Couldn't ask for more — genuinely impressed."</p>
+      <p class="reviewer-name">Nikos Papadopoulos</p>
+      <p class="reviewer-detail">Athens · Emergency Repair</p>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Full bathroom renovation. Clean, on time, exactly what we discussed. The team was professional and easy to work with."</p>
+      <p class="reviewer-name">Maria Stavros</p>
+      <p class="reviewer-detail">Piraeus · Bathroom Fitting</p>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p class="review-text">"Blocked drain that two other plumbers couldn't fix. FlowRight found it with a camera and cleared it same day. Great service."</p>
+      <p class="reviewer-name">Kostas Angelopoulos</p>
+      <p class="reviewer-detail">Glyfada · Drain Clearance</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-s">
+  <h2>Need a plumber<br/><span>right now?</span></h2>
+  <p>Call us or book online. We'll have someone with you fast.</p>
+  <a href="#" class="btn btn-blue">Book Online</a>
+  <br/>
+  <a href="tel:+302105550100" class="cta-emergency"><strong>EMERGENCY?</strong> Call +30 210 555 0100 — We Answer 24/7</a>
+</section>
+
+<footer>
+  <div class="footer-logo">
+    <div class="logo-main">Flow<span>Right.</span></div>
+  </div>
+  <div class="footer-links">
+    <a href="#">Services</a>
+    <a href="#">Emergency</a>
+    <a href="#">Privacy</a>
+  </div>
+  <p class="footer-copy">© 2026 FlowRight Plumbing</p>
+</footer>
+
+</body>
+</html>

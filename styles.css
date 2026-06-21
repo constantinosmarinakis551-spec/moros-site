@@ -798,4 +798,96 @@ footer {
 
   .stats { grid-template-columns: 1fr; gap: 2.5rem; }
   .field-row { grid-template-columns: 1fr; }
+
+  .work-grid { grid-template-columns: repeat(2, 1fr); }
+  .demo-card:nth-child(4) { grid-column: auto; }
+  .demo-card:nth-child(5) { grid-column: auto; }
+}
+
+/* ---------- Work / Demo Showcase ---------- */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.demo-card {
+  grid-column: span 2;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.demo-card:nth-child(4) { grid-column: 2 / span 2; }
+.demo-card:nth-child(5) { grid-column: 4 / span 2; }
+
+.demo-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+
+.demo-niche {
+  padding: 0.75rem 1rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-family: var(--sans);
+  font-weight: 500;
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--line);
+}
+
+.demo-chrome {
+  background: #1a1a1a;
+  padding: 0.55rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.demo-chrome .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #444;
+}
+.demo-chrome .dot:nth-child(1) { background: #ff5f57; }
+.demo-chrome .dot:nth-child(2) { background: #ffbd2e; }
+.demo-chrome .dot:nth-child(3) { background: #28ca41; }
+.demo-url {
+  flex: 1;
+  background: #111;
+  border-radius: 3px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.65rem;
+  color: #555;
+  font-family: var(--sans);
+  margin-left: 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.demo-frame-wrap {
+  height: 360px;
+  overflow: hidden;
+  position: relative;
+  background: #0a0a0a;
+}
+
+.demo-frame {
+  --s: 0.235;
+  width: 1440px;
+  height: 2400px;
+  border: none;
+  pointer-events: none;
+  transform: scale(var(--s)) translateY(0px);
+  transform-origin: top left;
+  transition: transform 4s ease-in-out;
+}
+
+.demo-card:hover .demo-frame {
+  transform: scale(var(--s)) translateY(-800px);
 }

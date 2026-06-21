@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crown & Blade — Classic Barbershop</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:"Helvetica Neue",system-ui,sans-serif;background:#0a0a0a;color:#f0ead8;line-height:1.6;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 3rem;background:rgba(10,10,10,0.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.07)}
+.nav-logo{font-size:1.1rem;color:#f0ead8;letter-spacing:0.22em;text-transform:uppercase;text-decoration:none;font-weight:700}
+.nav-logo span{color:#c87f0a}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-links a{color:rgba(240,234,216,0.55);text-decoration:none;font-size:0.8rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:500}
+.nav-book{background:#c87f0a;color:#0a0a0a !important;padding:0.6rem 1.4rem;border-radius:2px;font-weight:700 !important}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 3rem;background:#0a0a0a;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(145deg,#1a0f00 0%,#0a0a0a 60%)}
+.hero::after{content:'';position:absolute;top:0;right:0;bottom:0;width:45%;background:linear-gradient(180deg,#1a1000 0%,#0d0800 100%);clip-path:polygon(15% 0,100% 0,100% 100%,0 100%)}
+.hero-inner{position:relative;z-index:2;max-width:680px}
+.hero-tag{font-size:0.68rem;letter-spacing:0.35em;text-transform:uppercase;color:#c87f0a;margin-bottom:1.6rem;display:flex;align-items:center;gap:0.8rem}
+.hero-tag::after{content:'';flex:1;max-width:40px;height:1px;background:#c87f0a;opacity:0.5}
+.hero h1{font-size:5.5rem;font-weight:900;line-height:0.95;text-transform:uppercase;letter-spacing:-0.02em;margin-bottom:0.5rem}
+.hero h1 span{display:block;color:#c87f0a}
+.hero-sub{font-size:1rem;color:rgba(240,234,216,0.5);max-width:380px;margin:1.8rem 0 2.8rem;line-height:1.7;font-weight:300}
+.btn-row{display:flex;gap:1rem;align-items:center}
+.btn{display:inline-block;padding:1rem 2.2rem;font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;font-weight:700;border-radius:2px;transition:all 0.25s}
+.btn-amber{background:#c87f0a;color:#0a0a0a}
+.btn-line{border:1px solid rgba(240,234,216,0.25);color:#f0ead8}
+.hero-badge{display:flex;align-items:center;gap:0.6rem;margin-top:3rem;font-size:0.75rem;letter-spacing:0.1em;color:rgba(240,234,216,0.35)}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:#c87f0a}
+
+.sp{padding:6rem 3rem}
+.section-label{font-size:0.65rem;letter-spacing:0.35em;text-transform:uppercase;color:#c87f0a;margin-bottom:1rem}
+.section-h{font-size:3rem;font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;line-height:1;margin-bottom:3rem}
+
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,0.07)}
+.service-item{background:#0a0a0a;padding:2.5rem;border:none}
+.svc-num{font-size:0.65rem;letter-spacing:0.25em;color:#c87f0a;margin-bottom:1.2rem;font-weight:700}
+.svc-name{font-size:1.3rem;font-weight:800;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.5rem}
+.svc-desc{font-size:0.83rem;color:rgba(240,234,216,0.45);line-height:1.7;margin-bottom:1.5rem}
+.svc-price{font-size:1.6rem;font-weight:900;color:#c87f0a}
+.svc-duration{font-size:0.72rem;color:rgba(240,234,216,0.3);margin-left:0.3rem;font-weight:400}
+
+.bg-off{background:#0d0d0d}
+.quote-section{text-align:center;padding:7rem 3rem;position:relative}
+.quote-mark{font-size:12rem;color:rgba(200,127,10,0.08);position:absolute;top:1rem;left:50%;transform:translateX(-50%);font-family:Georgia,serif;line-height:1;z-index:0}
+.quote-text{position:relative;z-index:1;font-size:2.2rem;font-weight:800;text-transform:uppercase;letter-spacing:0.02em;line-height:1.2;max-width:700px;margin:0 auto 1.5rem}
+.quote-attr{font-size:0.75rem;letter-spacing:0.2em;color:rgba(240,234,216,0.35);text-transform:uppercase}
+
+.hours-strip{background:#c87f0a;padding:2rem 3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.hour-item{text-align:center;color:#0a0a0a}
+.hour-day{font-size:0.65rem;font-weight:800;letter-spacing:0.2em;text-transform:uppercase;opacity:0.6;margin-bottom:0.3rem}
+.hour-time{font-size:1.1rem;font-weight:900;letter-spacing:0.04em}
+
+.book-section{padding:7rem 3rem;text-align:center}
+.book-section h2{font-size:3.5rem;font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;margin-bottom:1rem;line-height:0.95}
+.book-section h2 span{color:#c87f0a}
+.book-section p{color:rgba(240,234,216,0.45);margin-bottom:2.5rem;font-size:1rem}
+
+footer{background:#060606;border-top:1px solid rgba(255,255,255,0.06);padding:3rem;text-align:center;color:rgba(240,234,216,0.2);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Crown<span>&</span>Blade</a>
+  <ul class="nav-links">
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Team</a></li>
+    <li><a href="#">Gallery</a></li>
+    <li><a href="#" class="nav-book">Book Now</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="hero-tag">Est. 2014 · Master Barbers</p>
+    <h1>Old<br/>School.<br/><span>New Edge.</span></h1>
+    <p class="hero-sub">Sharp cuts. Clean fades. Every visit a ritual. We take pride in the craft — and it shows every time you walk out.</p>
+    <div class="btn-row">
+      <a href="#" class="btn btn-amber">Book Your Cut</a>
+      <a href="#" class="btn btn-line">See Services</a>
+    </div>
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      <span>Walk-ins welcome · Mon–Sat 9am–7pm</span>
+    </div>
+  </div>
+</header>
+
+<section class="sp bg-off">
+  <p class="section-label">What we offer</p>
+  <h2 class="section-h">The Menu</h2>
+  <div class="services-grid">
+    <div class="service-item">
+      <div class="svc-num">01</div>
+      <h3 class="svc-name">Classic Cut</h3>
+      <p class="svc-desc">Precision haircut with hot towel, shampoo, and style finish. The foundation of everything we do.</p>
+      <div><span class="svc-price">€28</span><span class="svc-duration">45 min</span></div>
+    </div>
+    <div class="service-item">
+      <div class="svc-num">02</div>
+      <h3 class="svc-name">Fade & Taper</h3>
+      <p class="svc-desc">Skin fade or taper to any length. Sharp lines, clean finish. Our most popular cut.</p>
+      <div><span class="svc-price">€32</span><span class="svc-duration">50 min</span></div>
+    </div>
+    <div class="service-item">
+      <div class="svc-num">03</div>
+      <h3 class="svc-name">Cut & Beard</h3>
+      <p class="svc-desc">Full haircut combined with a hot shave or beard trim. Leave looking completely dialled in.</p>
+      <div><span class="svc-price">€48</span><span class="svc-duration">70 min</span></div>
+    </div>
+    <div class="service-item">
+      <div class="svc-num">04</div>
+      <h3 class="svc-name">Royal Shave</h3>
+      <p class="svc-desc">Traditional straight razor shave with hot towel, pre-shave oil, and post-shave balm.</p>
+      <div><span class="svc-price">€35</span><span class="svc-duration">40 min</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="quote-section">
+  <div class="quote-mark">"</div>
+  <p class="quote-text">A great barber doesn't just cut hair. He reads the room and gives you confidence.</p>
+  <p class="quote-attr">— Marco, Head Barber · Crown & Blade</p>
+</div>
+
+<div class="hours-strip">
+  <div class="hour-item">
+    <p class="hour-day">Mon – Tue</p>
+    <p class="hour-time">9am – 6pm</p>
+  </div>
+  <div class="hour-item">
+    <p class="hour-day">Wed – Fri</p>
+    <p class="hour-time">9am – 7pm</p>
+  </div>
+  <div class="hour-item">
+    <p class="hour-day">Saturday</p>
+    <p class="hour-time">8am – 5pm</p>
+  </div>
+  <div class="hour-item">
+    <p class="hour-day">Sunday</p>
+    <p class="hour-time">Closed</p>
+  </div>
+</div>
+
+<section class="book-section bg-off">
+  <h2>Ready for your<br/><span>next cut?</span></h2>
+  <p>Book online in 30 seconds. No waiting, no surprises.</p>
+  <a href="#" class="btn btn-amber">Book Your Appointment</a>
+</section>
+
+<footer>
+  <p>© 2026 Crown & Blade Barbershop · All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
